@@ -35,7 +35,20 @@ class PasswortvalidierungTest {
     public void mindestens1Großbuchstabe() {
 
         //GIVEN
-        String mypassword = "skAekhr1";
+        String mypassword = "sksekhr1";
+
+        //WHEN
+        String result = Passwortvalidierung.pwcheck(mypassword);
+
+        //THEN
+        assertEquals("Bitte verwende mind einen Klein und einen Großbuchstaben", result);
+    }
+
+    @Test
+    public void allesSuper (){
+
+        //GIVEN
+        String mypassword = "123abcDE";
 
         //WHEN
         String result = Passwortvalidierung.pwcheck(mypassword);
