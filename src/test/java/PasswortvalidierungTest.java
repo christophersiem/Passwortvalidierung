@@ -21,13 +21,27 @@ class PasswortvalidierungTest {
     public void mindestens1Zahl() {
 
         //GIVEN
-        String mypassword = "kwjekeee";
+        String mypassword = "kwjikeee";
 
         //WHEN
         String result = Passwortvalidierung.pwcheck(mypassword);
 
         //THEN
         assertEquals("Bitte verwende mindestens eine Zahl", result);
+
+
+    }
+    @Test
+    public void mindestens1Großbuchstabe() {
+
+        //GIVEN
+        String mypassword = "skAekhr1";
+
+        //WHEN
+        String result = Passwortvalidierung.pwcheck(mypassword);
+
+        //THEN
+        assertEquals("Passwort erfolgreich gesetzt", result);
     }
 
 }
