@@ -1,41 +1,44 @@
 public class Passwortvalidierung {
 
 
-    public static String pwcheck(String password) {
+    //Mindestens 8 Zeichen
 
-
-        //Mindestens 8 Zeichen
-
+    public static String pwcheck8zeichen(String password) {
+        int a = 0;
         int lengthofpw = password.length();
+
         if (lengthofpw < 8) {
-            System.out.println("Bitte verwende mindestens 8 Zeichen");
             return "Bitte verwende mindestens 8 Zeichen";
-        }
 
+        } return "Das Passwort hat 8 Zeichen";
 
-//        Lösung #1
-//        https://beginnersbook.com/2014/08/java-regex-tutorial/
-//
-//        boolean containsnumber = password.matches(".*\\d.*");
+    }
 
-        //Lösung #2
-        // Mindestens eine Zahl
+    // Mindestens eine Zahl
+
+    public static String pwCheckEineZahl(String password) {
 
         boolean containsnumber = password.contains("1") || password.contains("2") || password.contains("3")
                 || password.contains("4") || password.contains("5") || password.contains("6") || password.contains(("7"))
                 || password.contains("8") || password.contains("9") || password.contains(("0"));
 
-        if (containsnumber == false) {
+        if (!containsnumber) {
             return "Bitte verwende mindestens eine Zahl";
-        }
-//        // Mindestens ein Großbuchstabe
 
-        int anzahlGroßbuchstaben = 0;
+        } return "Das Passwort hat mind. eine Zahl";
+    }
+
+    // Mindestens ein Großbuchstabe
+
+    public static String pwCheckEinGroßbuchstabe(String password) {
+
+
         char ch;
         boolean capital = false;
         boolean lower = false;
 
-        for (int i = 0; i < password.length(); i++) {
+        for (
+                int i = 0; i < password.length(); i++) {
             ch = password.charAt(i);
             if (Character.isUpperCase(ch)) {
                 capital = true;
@@ -43,9 +46,12 @@ public class Passwortvalidierung {
                 lower = true;
             }
         }
-        if (capital == false || lower == false) {
+        if (!capital || !lower) {
             return "Bitte verwende mind einen Klein und einen Großbuchstaben";
 
-        } else return "Passwort erfolgreich gesetzt";
+        }
+        return "Das Passwort hat mind. ein Groß und Kleinbuchstaben";
+
     }
+
 }

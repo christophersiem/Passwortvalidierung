@@ -11,7 +11,7 @@ class PasswortvalidierungTest {
         String mypassword = "ksA8291";
 
         //WHEN
-        String result = Passwortvalidierung.pwcheck(mypassword);
+        String result = Passwortvalidierung.pwcheck8zeichen(mypassword);
 
         //THEN
         assertEquals("Bitte verwende mindestens 8 Zeichen", result);
@@ -24,7 +24,7 @@ class PasswortvalidierungTest {
         String mypassword = "kwjikeee";
 
         //WHEN
-        String result = Passwortvalidierung.pwcheck(mypassword);
+        String result = Passwortvalidierung.pwCheckEineZahl(mypassword);
 
         //THEN
         assertEquals("Bitte verwende mindestens eine Zahl", result);
@@ -38,7 +38,7 @@ class PasswortvalidierungTest {
         String mypassword = "sksekhr1";
 
         //WHEN
-        String result = Passwortvalidierung.pwcheck(mypassword);
+        String result = Passwortvalidierung.pwCheckEinGroßbuchstabe(mypassword);
 
         //THEN
         assertEquals("Bitte verwende mind einen Klein und einen Großbuchstaben", result);
@@ -51,10 +51,10 @@ class PasswortvalidierungTest {
         String mypassword = "123abcDE";
 
         //WHEN
-        String result = Passwortvalidierung.pwcheck(mypassword);
+        String result = Passwortvalidierung.pwcheck8zeichen(mypassword);
 
         //THEN
-        assertEquals("Passwort erfolgreich gesetzt", result);
+        assertEquals("passt", result);
     }
 
 }
